@@ -167,10 +167,10 @@ $(document).ready(function(){
 function displayBot() {
 
     //  when chatbot button is clicked
-    $('').click(function () {
+    $('.chatbox_button').click(function () {
 
         //  toggle the chatbot chat window
-        $('').toggle()
+        $('.chatbox_chat').toggle()
     });
 
     //Start Conversation with Bot
@@ -180,18 +180,18 @@ function displayBot() {
 function askBot() {
 
     //  when send button is clicked
-    $("").click(function () {
+    $("#send_button").click(function () {
 
         //  get text from textbox in chatbot
-        var user_bot_input_text = $("").val()
+        var user_bot_input_text = $("#bot_input_text").val()
 
         if (user_bot_input_text != "") {
            
             //  add a new div element in the chat window
-            $("").append('<div class="user__messages">' + user_bot_input_text + ' </div>')
+            $("#chat_messages").append('<div class="user__messages">' + user_bot_input_text + ' </div>')
             
             //Clear the text input box after sending message
-            $("").val('');
+            $("#bot_input_text").val('');
 
             let chat_input_data = {
                 "": user_bot_input_text
@@ -201,7 +201,7 @@ function askBot() {
                 type: 'POST',
 
                 //  write the same URL as written in app.py file
-                url: "",
+                url: "bot_response",
 
                 data: JSON.stringify(chat_input_data),
                 dataType: "json",
